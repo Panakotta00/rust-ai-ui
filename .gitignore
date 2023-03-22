@@ -1,0 +1,4 @@
+.idea
+/target
+rust-ai-ui-server/dist
+rust-ai-ui-website/dist

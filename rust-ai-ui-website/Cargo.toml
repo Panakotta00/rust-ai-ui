@@ -1,0 +1,11 @@
+[package]
+name = "rust-ai-ui-website"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+yew = { version = "0.20.0", features = ["csr"] }
+web-sys = "0.3.61"
+markdown = "1.0.0-alpha.7"
+graphql_client = "0.12.0"
+wasm-sockets = "1.0.0"
