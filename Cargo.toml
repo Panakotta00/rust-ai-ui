@@ -3,3 +3,6 @@ members = [
     "rust-ai-ui-server",
     "rust-ai-ui-website",
 ]
+
+[patch.crates-io]
+rocket = { git = "https://github.com/Mai-Lapyst/Rocket.git", branch = "websockets" }

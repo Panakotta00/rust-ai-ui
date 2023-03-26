@@ -5,7 +5,13 @@ edition = "2021"
 
 [dependencies]
 yew = { version = "0.20.0", features = ["csr"] }
-web-sys = "0.3.61"
+web-sys = { version = "0.3.61", features = ["EventSource"] }
+wasm-bindgen = { version = "0.2.84" }
+wasm-bindgen-futures = "0.4.34"
 markdown = "1.0.0-alpha.7"
 graphql_client = "0.12.0"
 wasm-sockets = "1.0.0"
+futures = "0.3.27"
+futures-core = "0.3.27"
+# eventsource-client = "0.11.0"
+ws_stream_wasm = "0.7.4"
