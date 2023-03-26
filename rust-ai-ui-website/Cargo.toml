@@ -5,13 +5,19 @@ edition = "2021"
 
 [dependencies]
 yew = { version = "0.20.0", features = ["csr"] }
-web-sys = { version = "0.3.61", features = ["EventSource"] }
-wasm-bindgen = { version = "0.2.84" }
-wasm-bindgen-futures = "0.4.34"
+
 markdown = "1.0.0-alpha.7"
-graphql_client = "0.12.0"
-wasm-sockets = "1.0.0"
+
+cynic = { version = "1.0.0", features = ["default"] }
+graphql-ws-client = { version = "0.3.0", features = ["ws_stream_wasm",  "client-cynic"] }
+getrandom = { version = "0.2.8", features = ["js"] }
+
 futures = "0.3.27"
-futures-core = "0.3.27"
-# eventsource-client = "0.11.0"
+
 ws_stream_wasm = "0.7.4"
+web-sys = { version = "0.3.61", features = [] }
+wasm-bindgen = "0.2.84"
+wasm-bindgen-futures = "0.4.34"
+log = "0.4.17"
+console_log = "1.0.0"
+async_executors = { version = "0.6.0", features = ["async_std"] }

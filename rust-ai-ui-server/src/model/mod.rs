@@ -13,12 +13,17 @@ impl QueryRoot {
 
 #[Subscription]
 impl SubscriptionRoot {
-	async fn integers(&self, #[graphql(default = 1)] step: i32) -> impl futures_core::Stream<Item = i32> {
+	async fn integers(
+		&self,
+		#[graphql(default = 1)] step: i32,
+	) -> impl futures_core::Stream<Item = i32> {
 		let mut value = 0;
-		tokio_stream::wrappers::IntervalStream::new(tokio::time::interval(core::time::Duration::from_secs(1)))
-			.map(move |_| {
-				value += step;
-				value
-			})
+		tokio_stream::wrappers::IntervalStream::new(tokio::time::interval(
+			core::time::Duration::from_secs(1),
+		))
+		.map(move |_| {
+			value += step;
+			value
+		})
 	}
 }

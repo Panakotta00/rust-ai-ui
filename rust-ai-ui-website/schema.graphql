@@ -1,0 +1,12 @@
+schema {
+    query: QueryRoot
+    subscription: SubscriptionRoot
+}
+
+type QueryRoot {
+    add(a: Int!, b: Int!): Int!
+}
+
+type SubscriptionRoot {
+    integers(step: Int! = 1): Int!
+}
