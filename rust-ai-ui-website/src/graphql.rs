@@ -1,8 +1,10 @@
+use std::ops::Add;
 use crate::graphql::queries::MySubscription;
 use futures::StreamExt;
-use log::info;
+use log::{info, log};
 use log::Level;
 use wasm_bindgen::UnwrapThrowExt;
+use web_sys::Url;
 
 #[cynic::schema_for_derives(file = r#"schema.graphql"#, module = "schema")]
 mod queries {
@@ -32,8 +34,14 @@ where
 {
 	console_log::init_with_level(Level::Debug);
 
+	let window = web_sys::window().expect("no global window found");
+	info!("{:?}", window.location().href());
+	let mut url = Url::new(window.location().href().unwrap().as_str()).unwrap();
+	url.set_protocol("ws");
+	info!("{:?}", url.to_string());
+
 	let (ws, wsio) = ws_stream_wasm::WsMeta::connect(
-		"/graphql",
+		url.to_string().as_string().unwrap() + "graphql",
 		Some(vec!["graphql-transport-ws"]),
 	)
 	.await
