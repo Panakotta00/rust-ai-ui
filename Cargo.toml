@@ -1,7 +1,8 @@
 [workspace]
 members = [
-    "rust-ai-ui-server",
-    "rust-ai-ui-website",
+    "server",
+    "website",
+    "ai-tests",
 ]
 
 [patch.crates-io]
