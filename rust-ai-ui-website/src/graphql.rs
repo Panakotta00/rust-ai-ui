@@ -33,7 +33,7 @@ where
 	console_log::init_with_level(Level::Debug);
 
 	let (ws, wsio) = ws_stream_wasm::WsMeta::connect(
-		"ws://localhost:8090/graphql",
+		"/graphql",
 		Some(vec!["graphql-transport-ws"]),
 	)
 	.await

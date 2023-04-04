@@ -23,14 +23,10 @@ use rocket::{
 use std::ops::Deref;
 use std::str::FromStr;
 use std::sync::atomic::AtomicUsize;
+use rocket::fs::FileServer;
 
 pub type GraphQLSchemaValue = Schema<QueryRoot, EmptyMutation, SubscriptionRoot>;
 pub type GraphQLSchema = GraphQLSchemaValue;
-
-#[get("/")]
-fn index() -> &'static str {
-	"Hello, world!"
-}
 
 #[get("/playground")]
 fn graphiql() -> content::RawHtml<String> {
@@ -210,8 +206,10 @@ fn rocket() -> _ {
 		}))
 		.mount(
 			"/",
+			FileServer::from("./rust-ai-ui-website/dist"))
+		.mount(
+			"/",
 			routes![
-				index,
 				graphql_query,
 				graphql_request,
 				graphql_subscription,
