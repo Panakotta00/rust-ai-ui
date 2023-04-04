@@ -206,7 +206,7 @@ fn rocket() -> _ {
 		}))
 		.mount(
 			"/",
-			FileServer::from("./rust-ai-ui-website/dist"))
+			FileServer::from("./website/dist"))
 		.mount(
 			"/",
 			routes![
